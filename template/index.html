@@ -1,0 +1,235 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cambio de clave</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="{% static 'images/icono.png' %}" sizes="32x32" />
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href=' {% static "vendor/bootstrap/css/bootstrap.min.css" %}'>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href=' {% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css" %}'>
+
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href=' {% static "fonts/Linearicons-Free-v1.0.0/icon-font.min.css" %}'>
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href=' {% static "vendor/animate/animate.css" %}'>
+<!--===============================================================================================-->
+
+    <link rel="stylesheet" type="text/css" href=' {% static "vendor/css-hamburgers/hamburgers.min.css" %}'>
+<!--===============================================================================================-->
+
+    <link rel="stylesheet" type="text/css" href=' {% static "vendor/animsition/css/animsition.min.css" %}'>
+<!--===============================================================================================-->
+
+    <link rel="stylesheet" type="text/css" href=' {% static "vendor/select2/select2.min.css" %}'>
+
+<!--===============================================================================================-->
+
+    <link rel="stylesheet" type="text/css" href=' {% static "vendor/daterangepicker/daterangepicker.css" %}'>
+<!--===============================================================================================-->
+
+    <link rel="stylesheet" type="text/css" href=' {% static "css/util.css" %}'>
+
+    <link rel="stylesheet" type="text/css" href=' {% static "css/main.css" %}'>
+<!--===============================================================================================-->
+<style>
+#hashLink {
+	display: none;
+}
+#hashLink:target {
+	display: block;
+}
+.float-nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999999;
+}
+.float-nav:hover {
+cursor:pointer;
+}
+.float-nav-2 {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+.float-nav-2:hover {
+cursor:pointer;
+}
+.main-nav-2 {
+  font-family: sans-serif;
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  width: 120px;
+  margin-top:40px;
+}
+.main-nav-2.active {
+  display: block;
+  opacity: 1;
+}
+.main-nav-2 > ul {
+  width: 100%;
+  display: block;
+  list-style: none;
+	z-index:10;
+}
+.main-nav-2 > ul > li {
+    display: flex;
+    justify-content: space-between;
+}
+.main-nav-2 > ul > li > a {
+  text-decoration: none;
+  display: block;
+  font-weight: 200;
+  padding: 18px 80px 18px 18px;
+  color: black;
+}
+.main-nav-2 > ul > li > a:hover {
+  font-weight: 400;
+}
+.wa-icons{
+
+	color: white;
+	background-color: rgb(22, 141, 22);
+	padding: 5px;
+}
+.wa-icons i :hover{
+
+color: white;
+background-color: rgb(22, 141, 22);
+padding: 5px;
+}
+</style>
+</head>
+<body >
+	<div class="float-nav">
+		<div id="hashLink">
+			<div class="main-nav-2">
+	  <ul>
+		<li>
+		  <div class="wa-icons" style=" border-radius: 10px; border: 2px solid #000; background-color: rgb(22, 141, 22);">
+			<a style="color: white;" title="Sitio INCA" href="https://www.inca.edu.cu/" target="_blank" rel="nofollow noopener noreferrer">
+				<i title="Sitio INCA" class="fa fa-leaf  fa-2x "></i> 
+			</a>
+		   </div>
+		</li>
+			<li>
+				<div class="wa-icons" style=" border-radius: 10px; border: 2px solid #000; background-color: rgb(45, 113, 202);">
+					<a style="color: white;" title="Correo INCA" href="https://webmail.inca.edu.cu/" target="_blank" rel="nofollow noopener noreferrer">
+				<i title="Correo INCA" class="fa fa-envelope  fa-2x "></i> 
+			</a>
+		   </div>
+		</li>
+	
+		<li>
+			<div class="wa-icons" style=" border-radius: 10px; border: 2px solid #000; padding-right: 9px; padding-left: 9px; background-color: rgb(172, 91, 15);">
+				<a style="color: white;" title="Correo INCA" href="https://ediciones.inca.edu.cu/index.php/ediciones" target="_blank" rel="nofollow noopener noreferrer">
+			<i title="Revista del INCA" class="fa fa-bookmark  fa-2x "></i> 
+		</a>
+	   </div>
+		</li>
+	  </ul>
+	</div>
+		  <a href="#"><i class="fa fa-close  fa-2x " style=" color: rgb(0, 0, 0); "></i></a>
+	  </div>
+	</div>
+	
+	<a class="float-nav-2"  href="#hashLink"><i class="fa fa-gear fa-spin fa-5x " style=" color: rgb(4, 77, 4); border: black;"></i></a>
+	  
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+
+
+				<div class="login100-form-title" style="background-image: url({% static 'images/inca-origen.jpg' %});" >
+					<div class="login100-form-title-1" >
+					Cambio de Contraseña
+				</div>
+				<div class="login100-form-title-1" style="padding-top: 10px;">
+					<h5>Bienvenido {{ user.username }}</h5>
+				
+					<form method="post" action="{% url 'cerrar' %}"style="display: flex;  justify-content: center;">
+						{% csrf_token %}
+						<button type="submit" class="login100-form-btn">Cerrar sesión</button>
+					</form>
+        
+				</div>
+				</div>
+
+					{% if mensaje %}
+					<div class="alert {{tipo}} alert-dismissible">
+
+  <strong>{{mensaje}}</strong>
+						<a  class="close" data-dismiss="alert" style="pointer:cursor"><i class="fa fa-close"></i></a>
+</div>
+					{% endif %}
+
+				<form class="login100-form validate-form" method="post">
+
+
+					{% csrf_token %}
+				
+					
+                  <div class="wrap-input100 validate-input {{error}} m-b-18" data-validate = "La contraseña nueva es requerida">
+						<span class="label-input100">Nueva Contraseña</span>
+						<input class="input100" type="password" name="passn" minlength="6">
+						<span class="focus-input100"></span>
+
+					</div>
+                  <div class="wrap-input100 validate-input {{error}} m-b-18" data-validate = "La confirmación de la contraseña es requerida">
+						<span class="label-input100">Confirmar Nueva Contraseña</span>
+						<input class="input100" type="password" name="passnc" minlength="6">
+						<span class="focus-input100"></span>
+					</div>
+
+
+
+					<div style="padding-top:50px; display: flex;  justify-content: center;"  class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit" >
+							Cambiar
+						</button>
+
+					</div>
+
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+<!--===============================================================================================-->
+
+	<script src=' {% static "vendor/jquery/jquery-3.2.1.min.js" %}'></script>
+<!--===============================================================================================-->
+    <script src=' {% static "vendor/animsition/js/animsition.min.js" %}'></script>
+<!--===============================================================================================-->
+    <script src=' {% static "vendor/bootstrap/js/popper.js" %}'></script>
+	<script src=' {% static "vendor/bootstrap/js/bootstrap.min.js" %}'></script>
+<!--===============================================================================================-->
+
+	<script src=' {% static "vendor/select2/select2.min.js" %}'></script>
+<!--===============================================================================================-->
+
+	<script src=' {% static "vendor/daterangepicker/moment.min.js" %}'></script>
+
+	<script src=' {% static "vendor/daterangepicker/daterangepicker.js" %}'></script>
+
+<!--===============================================================================================-->
+
+	<script src=' {% static "vendor/countdowntime/countdowntime.js" %}'></script>
+<!--===============================================================================================-->
+	</script><script src=' {% static "js/main.js" %}'></script>
+
+
+</body>
+</html>
