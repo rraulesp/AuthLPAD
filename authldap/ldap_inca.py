@@ -4,17 +4,17 @@ from django_auth_ldap.config import LDAPSearch, GroupOfNamesType, ActiveDirector
 
 
 # Baseline configuration.
-AUTH_LDAP_SERVER_URI = 'ldap://10.40.0.7'
+AUTH_LDAP_SERVER_URI = 'ldap://xxx.xxx.xxx.xxx'
 
-AUTH_LDAP_USER = "ad_search"
-AUTH_LDAP_BIND_DN = 'cn=ad_search ad_search,cn=users,dc=inca,dc=edu,dc=cu'
-AUTH_LDAP_BIND_PASSWORD = 'Az@7811*dz'
+AUTH_LDAP_USER = "xxxx"
+AUTH_LDAP_BIND_DN = 'cn=xxxx xxx,cn=users,dc=xxxx,dc=xxx,dc=xxxx'
+AUTH_LDAP_BIND_PASSWORD = 'xxxxxxx'
 
 
 
 # Datos para autenticacion en el ldap
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    'cn=users,dc=inca,dc=edu,dc=cu',
+    'cn=xxxx,dc=xxxx,dc=xxxx,dc=xxx',
     ldap.SCOPE_SUBTREE,
     '(samaccountname=%(user)s)',
 )
@@ -23,7 +23,7 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch(
 
 # Set up the basic group parameters.
 AUTH_LDAP_GROUP_SEARCH = LDAPSearch(
-    'dc=inca,dc=edu,dc=cu',
+    'dc=xxxx,dc=xxxx,dc=xx',
     ldap.SCOPE_SUBTREE,
     '(objectClass=Group)',
 )
@@ -33,13 +33,8 @@ AUTH_LDAP_GROUP_TYPE = ActiveDirectoryGroupType(name_attr='cn')
 from django_auth_ldap.config import LDAPGroupQuery
 AUTH_LDAP_REQUIRE_GROUP = (
     (
-        LDAPGroupQuery('CN=ARusers,OU=squid,DC=inca,DC=edu,DC=cu') |
-        LDAPGroupQuery('CN=Internet,OU=squid,DC=inca,DC=edu,DC=cu') |
-        LDAPGroupQuery('CN=Internet_full,OU=squid,DC=inca,DC=edu,DC=cu') |
-        LDAPGroupQuery('CN=RSocial,OU=squid,DC=inca,DC=edu,DC=cu') |
-        LDAPGroupQuery('CN=Video,OU=squid,DC=inca,DC=edu,DC=cu')|
-        LDAPGroupQuery('CN=Admins. del dominio,CN=Users,DC=inca,DC=edu,DC=cu')
-
+        LDAPGroupQuery('CN=xxxx,OU=xxxx,DC=xxxx,DC=xxx,DC=xxx') 
+       
     )
 )
 
@@ -81,17 +76,12 @@ AUTH_LDAP_AUTHORIZE_ALL_USERS = True
 
 AUTH_LDAP_USER_FLAGS_BY_GROUP = {
     'is_active': (
-        'CN=ARusers,OU=squid,DC=inca,DC=edu,DC=cu',
-        'CN=Internet,OU=squid,DC=inca,DC=edu,DC=cu',
-        'CN=Internet_full,OU=squid,DC=inca,DC=edu,DC=cu',
-       'CN=RSocial,OU=squid,DC=inca,DC=edu,DC=cu',
-        'CN=Video,OU=squid,DC=inca,DC=edu,DC=cu',
-    'CN=Admins. del dominio,CN=Users,DC=inca,DC=edu,DC=cu'
+        'CN=xxxxx,OU=xxxx,DC=xxx,DC=xxx,DC=xxx'
     ),
     'is_staff': (
         # 'CN=Admins. del dominio,CN=Users,DC=inca,DC=edu,DC=cu',
-        'CN=Internet, OU=squid, DC=inca, DC=edu, DC=cu'    ),
-    'is_superuser': ('CN=Admins. del dominio,cn=Users,dc=inca,dc=edu,dc=cu')
+        'CN=Internet, OU=xxxx, DC=xxx, DC=xxx, DC=xxx'    ),
+    'is_superuser': ('CN=Admins. del dominio,cn=xxx,dc=xxx,dc=xxx,dc=xxx')
 }
 
 
